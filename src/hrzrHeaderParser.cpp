@@ -27,6 +27,11 @@ HrzrHeaderParser::PacketType HrzrHeaderParser::getControlFromHeader(uint64_t hrz
   }
 }
 
+bool HrzrHeaderParser::hasExtendedTimestamp(uint64_t hrzr)
+{
+  return (static_cast<uint8_t>(hrzr) & 0x20);
+}
+
 uint16_t HrzrHeaderParser::getSequenceNumberFromHeader(uint64_t hrzr)
 {
   uint16_t squ_nr_raw = static_cast<uint16_t>(hrzr) & 0xFF0F;

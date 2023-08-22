@@ -18,4 +18,5 @@ public:
 
   static PacketType getControlFromHeader(uint64_t hrzr);
   static uint16_t getSequenceNumberFromHeader(uint64_t hrzr);
+  static bool hasExtendedTimestamp(uint64_t hrzr);
 };
