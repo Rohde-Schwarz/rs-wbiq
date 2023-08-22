@@ -244,7 +244,9 @@ static void lcore_dump()
   #ifdef FORWARD_ZMQ
   void *context = zmq_ctx_new();
   void *publisher = zmq_socket(context, ZMQ_PUB);
-  int rc = zmq_bind(publisher, "ipc:///tmp/feed0");
+  std::string fname_ipc_file = "ipc:///tmp/feed" + std::to_string(port_id);
+
+  int rc = zmq_bind(publisher, fname_ipc_file.c_str());
 
   if (rc != 0)
   {
